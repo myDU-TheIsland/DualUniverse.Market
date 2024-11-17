@@ -11,13 +11,15 @@
     bool addGutter = addGutterWrapper != null && addGutterWrapper == true;
 
     string wrapperClass = addGutter ? "container" : "container-fluid";
+
+    string version = @settings.CurrentVersion.Split('-').Last().Substring(2);
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - The Island</title>
+    <title>@ViewData["Title"] - Dual Universe Market</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -46,10 +48,8 @@
     <header class="bg-black/50 backdrop-blur-md fixed top-0 left-0 right-0 z-50">
         <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center">
-                <img src="/img/honjo-logo.png" style="height: 70px; padding-right: 8px;" />
                 <a href="~/"
-                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">The
-                    Isle</a>
+                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Dual Universe Market</a>
             </div>
             <!-- Mobile Menu Links -->
             <div class="relative">
@@ -77,15 +77,10 @@
                         <div class="border-t border-gray-600 my-2"></div>
                     }
                     <div class="flex flex-col text-center space-y-10 py-5">
-                        <a href="https://discord.gg/6zsBcDX5Rz" target="_blank"
+                        <a href="https://discord.gg/2tzAwa4qfE" target="_blank"
                             class="text-gray-300 hover:text-purple-400 transition-colors">OUR DISCORD</a>
-                        <a href="~/Market/Index"
-                            class="text-gray-300 hover:text-purple-400 transition-colors">MARKET</a>
-                       
                         <a href="https://www.mydualuniverse.wiki" target="_blank"
                             class="text-gray-300 hover:text-purple-400 transition-colors">WIKI</a>
-                        <a href="https://www.paypal.com/donate/?hosted_button_id=SGK46VC2GYFM2" target="_blank"
-                            class="text-gray-300 hover:text-purple-400 transition-colors">DONATE</a>
                         @if (!this.IsLoggedIn)
                         {
                             <a asp-controller="Authentication" asp-action="Signin"
@@ -97,18 +92,18 @@
                                 class="text-gray-300 hover:text-purple-400 transition-colors">Logout</a>
                         }
                     </div>
+
+                    <a href="https://github.com/myDU-TheIsland/DualUniverse.Market/commit/@version" target="_blank"
+                       class="text-gray-300 hover:text-purple-400 transition-colors">Version: @version</a>
                 </div>
             </div>
 
             <!-- Desktop Menu Links -->
             <div class="hidden md:flex items-center space-x-5">
-                <a href="https://discord.gg/6zsBcDX5Rz" target="_blank"
+                <a href="https://discord.gg/2tzAwa4qfE" target="_blank"
                     class="text-gray-300 hover:text-purple-400 transition-colors">OUR DISCORD</a>
-                <a href="~/Market/Index" class="text-gray-300 hover:text-purple-400 transition-colors">MARKET</a>
-                <a href="https://wiki.theisle.online" target="_blank"
+                <a href="https://www.mydualuniverse.wiki" target="_blank"
                     class="text-gray-300 hover:text-purple-400 transition-colors">WIKI</a>
-                <a href="https://www.paypal.com/donate/?hosted_button_id=SGK46VC2GYFM2" target="_blank"
-                    class="text-gray-300 hover:text-purple-400 transition-colors">DONATE</a>
                 @if (!this.IsLoggedIn)
                 {
                     <a asp-controller="Authentication" asp-action="Signin"
@@ -145,11 +140,8 @@
                         </div>
                     </div>
                 }
-                @{
-                    string version = @settings.CurrentVersion.Split('-').Last().Substring(2);
-                }
                 <a href="https://github.com/myDU-TheIsland/DualUniverse.Market/commit/@version" target="_blank"
-                   class="text-gray-300 hover:text-purple-400 transition-colors">Current Version: @version</a>
+                   class="text-gray-300 hover:text-purple-400 transition-colors">Version: @version</a>
             </div>
         </nav>
     </header>
