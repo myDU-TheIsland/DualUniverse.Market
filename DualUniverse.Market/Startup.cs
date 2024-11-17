@@ -223,16 +223,27 @@ namespace DualUniverse.Market
             // Required to serve files with no extension in the .well-known folder
             StaticFileOptions options = new ()
             {
+                FileProvider = new PhysicalFileProvider(System.IO.Path.GetFullPath("wwwroot")),
                 ServeUnknownFileTypes = true,
+                OnPrepareResponse = ctx =>
+                {
+                    // Cache static files for 30 days
+                    ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=2592000");
+                },
             };
 
             app.UseStaticFiles(options);
             app.UseStaticFiles(new StaticFileOptions()
-             {
-                 FileProvider = new PhysicalFileProvider(System.IO.Path.GetFullPath(SiteSettings.StaticPath)),
-                 RequestPath = new PathString("/static"),
-                 DefaultContentType = "application/octet-stream",
-             });
+            {
+                FileProvider = new PhysicalFileProvider(System.IO.Path.GetFullPath(SiteSettings.StaticPath)),
+                RequestPath = new PathString("/static"),
+                DefaultContentType = "application/octet-stream",
+                OnPrepareResponse = ctx =>
+                {
+                    // Cache static files for 30 days
+                    ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=2592000");
+                },
+            });
 
             app.UseRouting();
 
