@@ -251,8 +251,11 @@ ModelManifest.xml
 
 #Don't commit any .css files (.less only)
 *.css
-!wwwroot/css/style.css
-!wwwroot/css/tailwind.css
+!**/wwwroot/css/style.css
+!**/wwwroot/css/tailwind.css
+!**/wwwroot/**/*.min.css
+!**/wwwroot/**/*.min.js
+!**/wwwroot/**/*.js.map
 
 *.lock.json
 .vscode
@@ -260,6 +263,6 @@ global.json
 
 #Don't commit any templates other than DEFAULT
 .idea/
-appsettings.json
+DualUniverse.Market/appsettings.json
 
 DualUniverse.Market/dpk/*
