@@ -2,7 +2,7 @@
   "Site": {
     "DPKPath": "",
     "StaticPath": "",
-    "CurrentVersion": "",
+    "CurrentVersion": "1.0.0-gh9dfedbb",
     "admins": [ "", "" ],
     "apikey": [ "" ],
     "Discord": {
