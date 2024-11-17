@@ -130,7 +130,7 @@ namespace DualUniverse.Market.Services.SQL
 
         public virtual async Task<double[]> AddAsync(IEnumerable<TValue> items, CancellationToken cancellationToken = default)
         {
-            List<double> output = new List<double>();
+            List<double> output = new ();
 
             // loop and get the ids
             foreach (TValue item in items)
@@ -182,7 +182,7 @@ namespace DualUniverse.Market.Services.SQL
         {
             using (DbConnection databaseConnection = this.GetConnection())
             {
-                TValue itemToDelete = new TValue { id = key };
+                TValue itemToDelete = new () { id = key };
                 return await databaseConnection.DeleteAsync(itemToDelete).ConfigureAwait(false);
             }
         }

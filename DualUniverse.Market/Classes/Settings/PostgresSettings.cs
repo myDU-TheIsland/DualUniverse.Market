@@ -14,7 +14,7 @@ namespace DualUniverse.Market.Classes.Settings
 
         public string Password { get; set; } = "dual";
 
-        public string DatabaseName { get; set; } = "TheIsland";
+        public string DatabaseName { get; set; } = "DualUniverseMarket";
 
         public string ConnectionString { get; set; } = string.Empty;
 

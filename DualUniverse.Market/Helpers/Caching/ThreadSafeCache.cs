@@ -16,7 +16,7 @@ namespace DualUniverse.Market.Helpers.Caching
     /// <seealso cref="IThreadSafeCacheLookup{TValue}" />
     public class ThreadSafeCacheLookup<TValue> : IThreadSafeCacheLookup<TValue>
     {
-        private readonly ConcurrentDictionary<string, Task<TValue?>> _workers = new ConcurrentDictionary<string, Task<TValue?>>();
+        private readonly ConcurrentDictionary<string, Task<TValue?>> _workers = new ();
 
         /// <summary>
         /// Threads the safe lookup.
@@ -37,7 +37,7 @@ namespace DualUniverse.Market.Helpers.Caching
                     // There is a small race condition here between TryGetValue and TryAdd that might cause the
                     // content to be computed more than once. We don't care about this race as the probability of
                     // happening is very small and the impact is not critical.
-                    TaskCompletionSource<TValue?> tcs = new TaskCompletionSource<TValue?>(creationOptions: TaskCreationOptions.RunContinuationsAsynchronously);
+                    TaskCompletionSource<TValue?> tcs = new (creationOptions: TaskCreationOptions.RunContinuationsAsynchronously);
 
                     this._workers.TryAdd(keyValue, tcs.Task);
                     try

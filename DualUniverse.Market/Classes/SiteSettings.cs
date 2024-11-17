@@ -13,10 +13,12 @@ namespace DualUniverse.Market.Classes
 
         public PostgresSettings Postgres { get; set; } = new PostgresSettings();
 
-        public string[] Admins { get; set; } = { };
+        public string[] Admins { get; set; } = Array.Empty<string>();
 
-        public string[] ApiKey { get; set; } = { "5108b23c-9fec-497e-88a6-07f9d3032dcc" };
+        public string[] ApiKey { get; set; } = Array.Empty<string>();
 
-        public string DPKPath { get; set; } = "/config/dpk";
+        public string DPKPath { get; set; } = string.Empty;
+
+        public string StaticPath { get; set; } = string.Empty;
     }
 }

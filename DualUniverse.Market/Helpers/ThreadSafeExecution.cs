@@ -10,7 +10,7 @@ namespace DualUniverse.Market.Helpers
 
     public static class ThreadSafeExecution
     {
-        private static readonly ConcurrentDictionary<string, Task> _workers = new ConcurrentDictionary<string, Task>();
+        private static readonly ConcurrentDictionary<string, Task> _workers = new ();
 
         /// <summary>
         /// Threads the safe execution.
@@ -25,7 +25,7 @@ namespace DualUniverse.Market.Helpers
                 // There is a small race condition here between TryGetValue and TryAdd that might cause the
                 // content to be computed more than once. We don't care about this race as the probability of
                 // happening is very small and the impact is not critical.
-                TaskCompletionSource tcs = new TaskCompletionSource(creationOptions: TaskCreationOptions.RunContinuationsAsynchronously);
+                TaskCompletionSource tcs = new (creationOptions: TaskCreationOptions.RunContinuationsAsynchronously);
 
                 _workers.TryAdd(key, tcs.Task);
                 try

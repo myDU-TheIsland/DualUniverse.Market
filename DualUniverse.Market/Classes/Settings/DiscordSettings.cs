@@ -2,7 +2,7 @@
 // Copyright (c) Paul Layne. All rights reserved.
 // </copyright>
 
-namespace DualUniverse.Market.Classes
+namespace DualUniverse.Market.Classes.Settings
 {
     public class DiscordSettings
     {

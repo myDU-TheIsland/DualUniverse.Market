@@ -20,7 +20,6 @@ namespace DualUniverse.Market
     using Microsoft.AspNetCore.HttpOverrides;
     using Microsoft.AspNetCore.Server.Kestrel.Core;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Options;
     using Microsoft.IdentityModel.Logging;
     using Microsoft.OpenApi.Models;
     using StackExchange.Exceptional.Stores;
@@ -45,7 +44,7 @@ namespace DualUniverse.Market
             this.HostingEnvironment = env;
 
             // Build settings object (pulls from appsettings.*)
-            SiteSettings setupSettings = new SiteSettings();
+            SiteSettings setupSettings = new ();
             this.Configuration.GetSection("Site").Bind(setupSettings);
             SiteSettings = setupSettings;
 
@@ -114,7 +113,7 @@ namespace DualUniverse.Market
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Role, "User"),
+                        new (ClaimTypes.Role, "User"),
                     };
 
                     if (SiteSettings.Admins.Contains(ctx.Principal?.Claims.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value ?? "-1"))
@@ -170,7 +169,7 @@ namespace DualUniverse.Market
             });
 
             // settings
-            services.AddSingleton(SiteSettings);
+            services.AddSingleton<ISiteSettings>(SiteSettings);
             services.AddSingleton(SiteSettings.Postgres);
             services.AddSingleton<ApiKeyAuthorizationFilter>();
 
@@ -216,16 +215,13 @@ namespace DualUniverse.Market
             {
                 IdentityModelEventSource.ShowPII = true;
             }
-            else
-            {
-                app.UseResponseCompression();
-            }
 
+            app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseSession();
 
             // Required to serve files with no extension in the .well-known folder
-            StaticFileOptions options = new StaticFileOptions()
+            StaticFileOptions options = new ()
             {
                 ServeUnknownFileTypes = true,
             };
