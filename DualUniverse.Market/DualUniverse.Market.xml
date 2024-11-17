@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DualUniverse.Market</name>
+    </assembly>
+    <members>
+        <member name="T:DualUniverse.Market.Helpers.Caching.IThreadSafeCacheLookup`1">
+            <summary>
+            Interface IThreadSafeCacheLookup.
+            </summary>
+            <typeparam name="TValue">The type of the t value.</typeparam>
+        </member>
+        <member name="M:DualUniverse.Market.Helpers.Caching.IThreadSafeCacheLookup`1.ThreadSafeLookup(System.String,System.Func{System.Threading.Tasks.Task{`0}})">
+            <summary>
+            Threads the safe lookup.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lookup">The lookup.</param>
+            <returns>Task&lt;TValue&gt;.</returns>
+        </member>
+        <member name="T:DualUniverse.Market.Helpers.Caching.ThreadSafeCacheLookup`1">
+            <summary>
+            Class ThreadSafeCacheLookup.
+            Implements the <see cref="T:DualUniverse.Market.Helpers.Caching.IThreadSafeCacheLookup`1" />.
+            </summary>
+            <typeparam name="TValue">The type of the t value.</typeparam>
+            <seealso cref="T:DualUniverse.Market.Helpers.Caching.IThreadSafeCacheLookup`1" />
+        </member>
+        <member name="M:DualUniverse.Market.Helpers.Caching.ThreadSafeCacheLookup`1.ThreadSafeLookup(System.String,System.Func{System.Threading.Tasks.Task{`0}})">
+            <summary>
+            Threads the safe lookup.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lookup">The lookup.</param>
+            <returns>Task&lt;TValue&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Helpers.ParallelizationHelpers.ForEachAsync``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Func{``0,System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            The for each async.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="dop">
+            The dop.
+            </param>
+            <param name="body">
+            The body.
+            </param>
+            <param name="cancellationToken">
+            The cancellation token.
+            </param>
+            <typeparam name="T">
+            </typeparam>
+            <returns>
+            The <see cref="T:System.Threading.Tasks.Task"/>.
+            </returns>
+            <remarks>Referenced from https://blogs.msdn.microsoft.com/pfxteam/2012/03/05/implementing-a-simple-foreachasync-part-2/.</remarks>
+        </member>
+        <member name="M:DualUniverse.Market.Helpers.ThreadSafeExecution.ThreadExecution(System.String,System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Threads the safe execution.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="lookup">The lookup.</param>
+            <returns>Task&lt;TValue&gt;.</returns>
+        </member>
+        <member name="T:DualUniverse.Market.Services.IAppService">
+            <summary>
+            Placeholder class to allow us to use reflection to include things.
+            </summary>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Adds the item asynchronous.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.AddAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Adds the items asynchronous.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.GetAsync(System.Threading.CancellationToken)">
+            <summary>
+            Gets all the items asynchronous.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;TValue&gt;&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.GetAsync(System.Collections.Generic.IEnumerable{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Gets the items with the specified keys asynchronous.
+            </summary>
+            <param name="keys">The keys.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;IEnumerable&lt;TValue&gt;&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.GetAsync(System.Double,System.Threading.CancellationToken)">
+            <summary>
+            Gets the item with the specified key asynchronous.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;TValue&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.RemoveAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Removes the item asynchronous.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.RemoveAsync(System.Double,System.Threading.CancellationToken)">
+            <summary>
+            Removes the item with the specified key asynchronous.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.RemoveAsync(System.Collections.Generic.IEnumerable{System.Double},System.Threading.CancellationToken)">
+            <summary>
+            Removes the items with the specified keys asynchronous.
+            </summary>
+            <param name="keys">The keys.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Double&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.RemoveAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Removes the items asynchronous.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Double&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.UpdateAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Updates the items asynchronous.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Double&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Services.SQL.IEntityRepository`1.UpdateAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Updates the item asynchronous.
+            </summary>
+            <param name="item">The item.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>Task&lt;System.Boolean&gt;.</returns>
+        </member>
+        <member name="M:DualUniverse.Market.Startup.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DualUniverse.Market.Startup"/> class.
+            </summary>
+            <param name="env">
+            The env.
+            </param>
+        </member>
+        <member name="P:DualUniverse.Market.Startup.SiteSettings">
+            <summary>
+            Gets or sets the site settings.
+            </summary>
+            <value>The setup settings.</value>
+        </member>
+        <member name="P:DualUniverse.Market.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+        </member>
+        <member name="P:DualUniverse.Market.Startup.HostingEnvironment">
+            <summary>
+            Gets the current HostingEnvironment.
+            </summary>
+        </member>
+    </members>
+</doc>
