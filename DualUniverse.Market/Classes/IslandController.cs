@@ -14,6 +14,8 @@ namespace DualUniverse.Market.Classes
     {
         protected string DiscordId => this.HttpContext?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value ?? "0";
 
+        protected string DiscordName => this.HttpContext?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")?.Value ?? "No Name";
+
         protected bool IsAdmin => this.AuthorizationService.AuthorizeAsync(this.HttpContext.User, "Admin").GetAwaiter().GetResult().Succeeded;
 
         protected bool IsUser => this.AuthorizationService.AuthorizeAsync(this.HttpContext.User, "User").GetAwaiter().GetResult().Succeeded;

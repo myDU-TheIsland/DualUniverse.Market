@@ -27,6 +27,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="appsettings.json.example" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<AdditionalFiles Include="../stylecop.json" Link="stylecop.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</AdditionalFiles>
@@ -36,6 +40,10 @@
 		<AdditionalFiles Include="../dualuniversemarket.ruleset" Link="dualuniversemarket.ruleset">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</AdditionalFiles>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.json.example" />
 	</ItemGroup>
 	
 	<ItemGroup>
@@ -64,6 +72,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
 	</ItemGroup>
 
 </Project>

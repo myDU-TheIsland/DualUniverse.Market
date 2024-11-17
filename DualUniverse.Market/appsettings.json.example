@@ -1,0 +1,25 @@
+{
+  "Site": {
+    "DPKPath": "",
+    "admins": [ "", "" ],
+    "apikey": [ "" ],
+    "Discord": {
+      "ClientId": "",
+      "ClientSecret": ""
+    },
+    "Postgres": {
+      "Server": "dev-postgre-1.servers.v0.design",
+      "Port": 5432,
+      "UserName": "",
+      "Password": "",
+      "Database": ""
+    }
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

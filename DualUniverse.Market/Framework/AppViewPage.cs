@@ -14,7 +14,7 @@ namespace DualUniverse.Market.Framework
     {
         public string DiscordId => this.Context?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value ?? "0";
 
-        public string DiscordName => this.Context?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value ?? "0";
+        public string DiscordName => this.Context?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name")?.Value ?? "No Name";
 
         public bool IsAdmin => this.AuthorizationService.AuthorizeAsync(this.Context.User, "Admin").GetAwaiter().GetResult().Succeeded;
 

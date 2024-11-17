@@ -29,7 +29,7 @@ namespace DualUniverse.Market
                 services.AddSingleton(typeDefinition);
             }
 
-            types = Assembly.Load("TheIsland.Core").GetTypes()
+            types = Assembly.Load("DualUniverse.Market").GetTypes()
                 .Where(type => typeof(IAppService).IsAssignableFrom(type) && !type.IsInterface)
                 .ToArray();
 
