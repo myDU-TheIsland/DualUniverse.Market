@@ -1,4 +1,4 @@
-﻿// <copyright file="IslandController.cs" company="Paul Layne">
+﻿// <copyright file="DUMPController.cs" company="Paul Layne">
 // Copyright (c) Paul Layne. All rights reserved.
 // </copyright>
 
@@ -10,7 +10,7 @@ namespace DualUniverse.Market.Classes
     using Microsoft.AspNetCore.Mvc;
 
     [ApiExplorerSettings(IgnoreApi = true)]
-    public class IslandController : Controller
+    public class DUMPController : Controller
     {
         protected string DiscordId => this.HttpContext?.User?.Claims?.FirstOrDefault(item => item.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")?.Value ?? "0";
 
@@ -24,7 +24,7 @@ namespace DualUniverse.Market.Classes
 
         private IAuthorizationService AuthorizationService { get; set; }
 
-        public IslandController(IAuthorizationService authorizationService)
+        public DUMPController(IAuthorizationService authorizationService)
         {
             this.AuthorizationService = authorizationService;
         }

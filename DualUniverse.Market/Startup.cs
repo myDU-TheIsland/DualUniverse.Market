@@ -145,13 +145,12 @@ namespace DualUniverse.Market
             {
                 services.AddDataProtection()
                     .PersistKeysToFileSystem(new DirectoryInfo(SiteSettings.DPKPath));
-
-                services.AddResponseCompression(options =>
-                {
-                    options.EnableForHttps = true;
-                });
             }
 
+            services.AddResponseCompression(options =>
+            {
+                options.EnableForHttps = true;
+            });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
