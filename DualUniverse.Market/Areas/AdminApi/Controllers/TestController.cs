@@ -10,7 +10,7 @@ namespace DualUniverse.Market.Areas.AdminApi.Controllers
     using Microsoft.AspNetCore.Mvc;
 
     [Area("AdminApi")]
-    [Route("~/admin/api/[contoller]/[action]")]
+    [Route("~/admin/api/[controller]/[action]")]
     [Authorize(Policy = "Admin")]
     [ApiExplorerSettings(IgnoreApi = false)]
     public class TestController : DUMPController
