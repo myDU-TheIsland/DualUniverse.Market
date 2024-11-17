@@ -20,6 +20,7 @@ namespace DualUniverse.Market
     using Microsoft.AspNetCore.HttpOverrides;
     using Microsoft.AspNetCore.Server.Kestrel.Core;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.IdentityModel.Logging;
     using Microsoft.OpenApi.Models;
     using StackExchange.Exceptional.Stores;
@@ -226,6 +227,12 @@ namespace DualUniverse.Market
             };
 
             app.UseStaticFiles(options);
+            app.UseStaticFiles(new StaticFileOptions()
+             {
+                 FileProvider = new PhysicalFileProvider(System.IO.Path.GetFullPath(SiteSettings.StaticPath)),
+                 RequestPath = new PathString("/static"),
+                 DefaultContentType = "application/octet-stream",
+             });
 
             app.UseRouting();
 
