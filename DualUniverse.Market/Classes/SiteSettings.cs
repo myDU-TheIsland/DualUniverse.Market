@@ -20,5 +20,7 @@ namespace DualUniverse.Market.Classes
         public string DPKPath { get; set; } = string.Empty;
 
         public string StaticPath { get; set; } = string.Empty;
+
+        public string CurrentVersion { get; set; } = string.Empty;
     }
 }

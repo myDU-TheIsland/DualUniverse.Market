@@ -1,6 +1,8 @@
 ﻿@using System.Security.Claims
+@using DualUniverse.Market.Classes.Interfaces
 @using Microsoft.AspNetCore.Http;
 @using DualUniverse.Market.Framework;
+@inject ISiteSettings settings
 @{
     string discordId = this.DiscordId;
     string discordName = this.DiscordName;
@@ -143,6 +145,11 @@
                         </div>
                     </div>
                 }
+                @{
+                    string version = @settings.CurrentVersion.Split('-').Last();
+                }
+                <a href="https://github.com/myDU-TheIsland/DualUniverse.Market/commit/@version" target="_blank"
+                   class="text-gray-300 hover:text-purple-400 transition-colors">Current Version: @version.Substring(0,7)</a>
             </div>
         </nav>
     </header>

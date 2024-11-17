@@ -16,6 +16,8 @@ namespace DualUniverse.Market.Classes.Interfaces
 
         string StaticPath { get; set; }
 
+        string CurrentVersion { get; set; }
+
         DiscordSettings Discord { get; set; }
 
         PostgresSettings Postgres { get; set; }
