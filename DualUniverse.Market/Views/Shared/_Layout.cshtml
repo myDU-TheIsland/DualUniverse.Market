@@ -146,10 +146,10 @@
                     </div>
                 }
                 @{
-                    string version = @settings.CurrentVersion.Split('-').Last();
+                    string version = @settings.CurrentVersion.Split('-').Last().Substring(2);
                 }
                 <a href="https://github.com/myDU-TheIsland/DualUniverse.Market/commit/@version" target="_blank"
-                   class="text-gray-300 hover:text-purple-400 transition-colors">Current Version: @version.Substring(0,7)</a>
+                   class="text-gray-300 hover:text-purple-400 transition-colors">Current Version: @version</a>
             </div>
         </nav>
     </header>
