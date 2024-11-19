@@ -2,7 +2,215 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="max-w-7xl mx-auto pt-20">
+    <div>
+        <!-- Main Content -->
+        <div
+            class="container flex-1 items-start py-6 md:grid md:grid-cols-[220px_1fr] md:gap-6 lg:grid-cols-[240px_1fr] lg:gap-10">
+            <!-- Filters Sidebar -->
+            <aside
+                class="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 overflow-y-auto border-r md:sticky md:block">
+                <div class="py-6 pr-6">
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <h2 class="text-lg font-semibold">Filters</h2>
+
+                            <!-- Core Filter -->
+                            <div class="space-y-2">
+                                <h3 class="font-medium">Core</h3>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="core-xs" class="h-4 w-4 text-blue-600" />
+                                        <label for="core-xs">XS</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="core-s" class="h-4 w-4 text-blue-600" />
+                                        <label for="core-s">S</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="core-m" class="h-4 w-4 text-blue-600" />
+                                        <label for="core-m">M</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="core-l" class="h-4 w-4 text-blue-600" />
+                                        <label for="core-l">L</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Environment Filter -->
+                            <div class="space-y-2">
+                                <h3 class="font-medium">Environment</h3>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-space" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-space">Space</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Atmosphere</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sold As Filter -->
+                            <div class="space-y-2">
+                                <h3 class="font-medium">Sold As</h3>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-space" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-space">Token</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Blueprint</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Model Conversion</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Role Filter -->
+                            <div class="space-y-2">
+                                <h3 class="font-medium">Role</h3>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-space" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-space">PVP</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Frieghter</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Courier</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Scanning</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Racer</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Pocket Rocket</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Role Filter -->
+                            <div class="space-y-2">
+                                <h3 class="font-medium">Features</h3>
+                                <div class="space-y-1">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-space" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-space">Shield</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">DSAT</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Rockets</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Anti-Gravity Gen</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Scanner</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Interior</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Radar</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Weapons</label>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="env-atmosphere" class="h-4 w-4 text-blue-600" />
+                                        <label for="env-atmosphere">Warp Drive</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Add similar blocks for "Sold As", "Role", "Features" -->
+
+                            <div class="mt-6 flex gap-2">
+                                <button class="flex-1 border border-gray-700 px-4 py-2 rounded-md">Clear</button>
+                                <button class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Area -->
+            <main class="flex flex-col gap-6">
+                <div class="flex items-center gap-4">
+                    <!-- Search Input -->
+                    <div class="relative flex-1">
+                        <input type="text" placeholder="Search ships..."
+                            class="pl-8 bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400 w-full py-2 rounded-md" />
+                    </div>
+                    <!-- Sort Dropdown -->
+                    <div class="relative">
+                        <button class="border border-gray-700 px-4 py-2">Sort By</button>
+                        <!-- Dropdown Content -->
+                        <div class="absolute right-0 mt-2 bg-gray-800 border border-gray-700 shadow-lg">
+                            <button class="block w-full text-left px-4 py-2 hover:bg-gray-700">Newest</button>
+                            <button class="block w-full text-left px-4 py-2 hover:bg-gray-700">Most Liked</button>
+                            <button class="block w-full text-left px-4 py-2 hover:bg-gray-700">Cheapest</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div>
+                    <div class="flex space-x-4 border-b border-gray-700">
+                        <button class="px-4 py-2 text-gray-300 hover:text-white">Ships</button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white">Statics</button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white">Voxel Sets</button>
+                        <button class="px-4 py-2 text-gray-300 hover:text-white">Lua Scripts</button>
+                    </div>
+                    <div class="mt-4">
+                        <!-- Static Card Data -->
+                        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                            @for (var i = 0; i < 6; i++)
+                            {
+                                <div class="bg-gray-800 border border-gray-700 rounded-md overflow-hidden">
+                                    <img src="/svg/placeholder.svg" alt="Spaceship preview"
+                                        class="w-full aspect-video object-cover" />
+                                    <div class="p-4">
+                                        <h3 class="font-semibold text-lg">Nautilus Freighter</h3>
+                                        <p class="text-sm text-gray-400">A large bio mechanoid creature. Living and thriving in the vastness of space.</p>
+                                        <div class="flex justify-between text-sm mt-2">
+                                            <span>Thrust: 319 MN</span>
+                                            <span>Cargo: 1,344 kL</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-4 bg-gray-900 flex justify-between items-center">
+                                        <span class="text-gray-400 text-sm">By Creator</span>
+                                        <button class="bg-blue-600 text-white px-2 py-1 text-sm">30M BP</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 </div>

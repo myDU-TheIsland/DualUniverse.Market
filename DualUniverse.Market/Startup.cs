@@ -216,7 +216,6 @@ namespace DualUniverse.Market
                 IdentityModelEventSource.ShowPII = true;
             }
 
-            app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseSession();
 
