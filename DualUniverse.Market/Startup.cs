@@ -146,17 +146,18 @@ namespace DualUniverse.Market
             {
                 services.AddDataProtection()
                     .PersistKeysToFileSystem(new DirectoryInfo(SiteSettings.DPKPath));
+
+                services.AddResponseCompression(options =>
+                {
+                    options.EnableForHttps = true;
+                });
             }
 
-            services.AddResponseCompression(options =>
-            {
-                options.EnableForHttps = true;
-            });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
                 c.OperationFilter<AddAuthorizationHeaderOperationHeader>();
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "The Island", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Dual Universe Market", Version = "v1" });
                 c.AddSecurityDefinition(
                     "Api Key",
                     new OpenApiSecurityScheme
@@ -169,7 +170,7 @@ namespace DualUniverse.Market
             });
 
             // settings
-            services.AddSingleton<ISiteSettings>(SiteSettings);
+            services.AddSingleton(SiteSettings);
             services.AddSingleton(SiteSettings.Postgres);
             services.AddSingleton<ApiKeyAuthorizationFilter>();
 
@@ -215,8 +216,11 @@ namespace DualUniverse.Market
             {
                 IdentityModelEventSource.ShowPII = true;
             }
+            else
+            {
+                app.UseResponseCompression();
+            }
 
-            app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseSession();
 
