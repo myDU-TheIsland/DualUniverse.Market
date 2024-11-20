@@ -1,0 +1,119 @@
+@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+  var images = new List<string>
+{
+"/svg/placeholder.svg",
+"/svg/placeholder.svg",
+"/svg/placeholder.svg",
+"/svg/placeholder.svg"
+};
+  var selectedImage = 0; // Default to the first image
+}
+
+<div class="min-h-screen max-w-7xl mx-auto pt-20">
+  <div class="">
+    <div class="container py-6 space-y-6">
+      <div class="flex items-center justify-between">
+        <div class="space-y-1">
+          <h1 class="text-3xl font-bold text-gray-100">Nautilus</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2">
+            <img src="/svg/thumbs-up.svg" class="w-5 h-5" />
+            <span class="text-green-500 font-medium">11</span>
+          </div>
+          <button class="px-4 py-2 border border-gray-500 rounded-lg text-gray-300 hover:bg-gray-700">
+            Sign in to like this ship
+          </button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-[1fr,300px] gap-6">
+        <!-- Main Content Section -->
+        <div class="space-y-6">
+          <!-- Image Card -->
+          <div class="border border-gray-700 bg-gray-800/50 rounded-lg overflow-hidden">
+            <div class="relative aspect-video group">
+              <img src="@images[selectedImage]" alt="Ship preview" class="w-full h-full object-cover" />
+              <button class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+            <div class="p-4 border-t border-gray-700">
+              <div class="flex gap-2 overflow-x-auto pb-2">
+                @for (var i = 0; i < images.Count; i++)
+                {
+                  <button class="relative flex-shrink-0 @(selectedImage == i ? "ring-2 ring-blue-500" : "")">
+                    <img src="@images[i]" alt="Preview @(i + 1)" class="w-20 h-20 object-cover" />
+                  </button>
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Card -->
+          <div class="border border-gray-700 bg-gray-800/50 rounded-lg">
+            <div class="p-4 border-b border-gray-700">
+              <h2 class="text-xl font-bold text-gray-100">Description</h2>
+              <p class="text-md font-bold text-red-500">This ship is only available for purchase on TheIsle</p>
+            </div>
+            <div class="p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <span class="text-sm text-gray-400">Price (BP)</span>
+                  <div class="font-semibold text-gray-100">50,000,000 &#8463;</div>
+                </div>
+                <div>
+                  <span class="text-sm text-gray-400">Price (Token)</span>
+                  <div class="font-semibold text-gray-100">123,000,000 &#8463;</div>
+                </div>
+              </div>
+              <div class="mt-4 text-gray-300 space-y-2">
+                <p>A Large Bio Mechanoid creature. Living and thriving in the Vastness of space.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Section -->
+        <div class="space-y-6">
+          <!-- Creator Info Card -->
+          <div class="border border-gray-700 bg-gray-800/50 rounded-lg">
+            <div class="p-4 border-b border-gray-700">
+              <h2 class="text-xl font-bold text-gray-100">Creator Info</h2>
+            </div>
+            <div class="p-4 space-y-2">
+              <div>
+                <span class="text-sm text-gray-400">Profile</span>
+                <a href="#" class="text-blue-400 hover:underline flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                  </svg>
+                  Dracks
+                </a>
+              </div>
+              <div>
+                <span class="text-sm text-gray-400">Discord</span>
+                <div class="text-gray-100">Drack#5614</div>
+              </div>
+              <div>
+                <span class="text-sm text-gray-400">In-game</span>
+                <div class="text-gray-100">Dracks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
