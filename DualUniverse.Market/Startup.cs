@@ -219,9 +219,9 @@ namespace DualUniverse.Market
             else
             {
                 app.UseResponseCompression();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             app.UseSession();
 
             // Required to serve files with no extension in the .well-known folder
